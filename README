@@ -32,8 +32,6 @@ CREATE TABLE produtos (
 
 3. Clone o repositório.
 
-git clone https://github.com/seu-usuario/gerenciamento-estoque.git
-
 4. Instale as dependências.
 
 cd gerenciamento-estoque
