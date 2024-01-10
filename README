@@ -1,0 +1,79 @@
+# Gerenciamento de Estoque
+
+Este é um projeto de sistema de gerenciamento de estoque (em construção) em JavaScript utilizando Node.js e MySQL.
+
+## Requisitos
+
+Antes de começar, certifique-se de ter os seguintes requisitos instalados em sua máquina:
+
+- [Node.js](https://nodejs.org/)
+- [MySQL Server](https://dev.mysql.com/downloads/)
+
+CONFIGURAÇÃO DO PROJETO
+
+## Configuração do Banco de Dados
+
+1. Crie um banco de dados chamado `gerenciamento_estoque` no MySQL.
+
+```sql
+CREATE DATABASE gerenciamento_estoque;
+
+2. Dentro do banco de dados gerenciamento_estoque, crie a tabela produtos com as colunas correspondentes aos campos do formulário.
+
+USE gerenciamento_estoque;
+CREATE TABLE produtos (
+  codigo INT PRIMARY KEY,
+  produto VARCHAR(255),
+  marca VARCHAR(255),
+  modelo VARCHAR(255),
+  valor DECIMAL(10, 2),
+  quantidade INT
+);
+
+3. Clone o repositório.
+
+git clone https://github.com/seu-usuario/gerenciamento-estoque.git
+
+4. Instale as dependências.
+
+cd gerenciamento-estoque
+npm install
+
+5. Abra o arquivo index.js e ajuste as configurações do MySQL na função connect.
+
+// index.js
+// ...
+
+async function connect() {
+  if (!pool) {
+    pool = await mysql.createPool({
+      host: 'localhost',
+      user: 'root',
+      password: 'sua_senha_do_mysql',
+      database: 'gerenciamento_estoque',
+      waitForConnections: true,
+      connectionLimit: 10,
+      queueLimit: 0,
+    });
+  }
+  return pool;
+}
+
+// ...
+
+EXECUÇÃO DO PROJETO
+
+1. Inicie o servidor MySQL.
+
+2. Execute o aplicativo.
+
+node index.js
+
+3. Abra um navegador e acesse http://localhost.
+
+FUNCIONALIDADES
+
+Busca de produtos por código.
+Inclusão de novos produtos.
+Exclusão de produtos (individual ou todos).
+Finalização do cadastro, enviando os produtos para o banco de dados.
